@@ -1,12 +1,22 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { site } from "@/lib/site";
 import { Aperture } from "./Aperture";
 
 export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
+  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
+    <section
+      ref={ref}
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+    >
+      <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={site.hero}
           alt="Couple at a South Indian wedding reception photographed by Esha Photography"
