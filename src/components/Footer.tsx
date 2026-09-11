@@ -34,13 +34,28 @@ export function Footer() {
           <a href={site.tel} className="flex items-center gap-2 hover:text-gold">
             <Phone className="h-4 w-4" /> {site.phone}
           </a>
-          <a href={site.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-gold">
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 hover:text-gold"
+          >
             <MessageCircle className="h-4 w-4" /> WhatsApp
           </a>
-          <a href={site.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-gold">
+          <a
+            href={site.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 hover:text-gold"
+          >
             <Instagram className="h-4 w-4" /> {site.instagramHandle}
           </a>
-          <a href={site.maps} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-gold">
+          <a
+            href={site.maps}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 hover:text-gold"
+          >
             <MapPin className="h-4 w-4" /> {site.location}
           </a>
         </div>

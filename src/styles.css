@@ -105,6 +105,20 @@
   animation-iteration-count: infinite;
 }
 
+.gold-bokeh {
+  background-image: radial-gradient(
+    circle,
+    oklch(0.89 0.1 92 / 32%),
+    oklch(0.78 0.13 86 / 15%) 40%,
+    transparent 70%
+  );
+  filter: blur(32px);
+  animation-name: bokeh-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 @keyframes particle-drift {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
@@ -117,10 +131,44 @@
   }
 }
 
+@keyframes bokeh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(3vw, -25vh, 0) scale(1.2);
+  }
+  100% {
+    transform: translate3d(-2.5vw, -48vh, 0) scale(0.9);
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @utility gold-text {
-  background-image: linear-gradient(100deg, var(--gold-light), var(--gold), var(--gold-deep));
+  background-image: linear-gradient(
+    100deg,
+    var(--gold-light),
+    var(--gold),
+    var(--gold-deep),
+    var(--gold),
+    var(--gold-light)
+  );
+  background-size: 250% auto;
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
+  animation: gold-shimmer 8s ease-in-out infinite;
 }
 
 @utility gold-fill {
@@ -143,6 +191,19 @@
   font-size: 0.7rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
+}
+
+/* Custom cursor controls */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+html.custom-cursor-active input,
+html.custom-cursor-active textarea,
+html.custom-cursor-active select,
+html.custom-cursor-active [contenteditable="true"] {
+  cursor: text !important;
 }
 
 @layer base {

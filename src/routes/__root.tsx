@@ -77,14 +77,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Esha Photography & Management | Wedding Photographer in Chennai" },
+      {
+        name: "description",
+        content:
+          "West Tambaram, Chennai studio for wedding, engagement, maternity and baby photography. Capturing Moments, Crafting Experiences. Call or WhatsApp 7824804281.",
+      },
+      { name: "author", content: "Esha Photography & Management" },
+      {
+        property: "og:title",
+        content: "Esha Photography & Management | Wedding Photographer in Chennai",
+      },
+      {
+        property: "og:description",
+        content:
+          "West Tambaram, Chennai studio for wedding, engagement, maternity and baby photography. Capturing Moments, Crafting Experiences.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/og.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Esha Photography & Management" },
+      {
+        name: "twitter:description",
+        content: "Capturing Moments, Crafting Experiences · Chennai · West Tambaram",
+      },
+      { name: "twitter:image", content: "/og.jpg" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -97,7 +114,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "any" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,

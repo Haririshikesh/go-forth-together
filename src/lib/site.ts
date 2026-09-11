@@ -36,21 +36,46 @@ export interface GalleryItem {
 
 export const aboutImages: GalleryItem[] = [
   { url: imgEternal, caption: "Eternal Togetherness", category: "Weddings", aspect: "portrait" },
-  { url: imgBabyGrass, caption: "First Steps in the Grass", category: "Babies", aspect: "portrait" },
+  {
+    url: imgBabyGrass,
+    caption: "First Steps in the Grass",
+    category: "Babies",
+    aspect: "portrait",
+  },
   { url: imgMatCouple, caption: "Two Hearts, One Wait", category: "Maternity", aspect: "portrait" },
-  { url: imgRingExchange, caption: "The Ring Exchange", category: "Engagement", aspect: "portrait" },
+  {
+    url: imgRingExchange,
+    caption: "The Ring Exchange",
+    category: "Engagement",
+    aspect: "portrait",
+  },
 ];
 
 export const gallery: GalleryItem[] = [
   { url: imgEternal, caption: "Eternal Togetherness", category: "Weddings", aspect: "portrait" },
   { url: imgMatGlow, caption: "Golden Glow Maternity", category: "Maternity", aspect: "portrait" },
-  { url: imgBabyGrass, caption: "First Steps in the Grass", category: "Babies", aspect: "portrait" },
-  { url: imgRingExchange, caption: "The Ring Exchange", category: "Engagement", aspect: "portrait" },
+  {
+    url: imgBabyGrass,
+    caption: "First Steps in the Grass",
+    category: "Babies",
+    aspect: "portrait",
+  },
+  {
+    url: imgRingExchange,
+    caption: "The Ring Exchange",
+    category: "Engagement",
+    aspect: "portrait",
+  },
   { url: imgHeart, caption: "Heartcrafted Reception", category: "Weddings", aspect: "portrait" },
   { url: imgMatCouple, caption: "Two Hearts, One Wait", category: "Maternity", aspect: "portrait" },
   { url: imgForever, caption: "Forever & Always", category: "Engagement", aspect: "wide" },
   { url: imgBabyWonder, caption: "Little Wonder", category: "Babies", aspect: "portrait" },
-  { url: imgMatGrace, caption: "Moments of Anticipation", category: "Maternity", aspect: "portrait" },
+  {
+    url: imgMatGrace,
+    caption: "Moments of Anticipation",
+    category: "Maternity",
+    aspect: "portrait",
+  },
   { url: imgBabySunlit, caption: "Sunlit Curls", category: "Babies", aspect: "portrait" },
 ];
 

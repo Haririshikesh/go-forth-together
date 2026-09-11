@@ -16,7 +16,7 @@ export function Contact() {
     "w-full rounded-xl border border-border bg-secondary/70 px-4 py-3 text-sm outline-none placeholder:text-muted-foreground focus:border-gold";
 
   return (
-    <section id="contact" className="bg-secondary/60 py-24 sm:py-32">
+    <section id="contact" className="bg-secondary/40 backdrop-blur-xs py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading
           label="Get in touch"
@@ -30,7 +30,7 @@ export function Contact() {
         <Reveal className="mt-12 grid gap-4 sm:grid-cols-3">
           <a
             href={site.tel}
-            className="flex items-center gap-4 rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
+            className="flex items-center gap-4 rounded-2xl border border-border/80 bg-card/70 backdrop-blur-sm p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
           >
             <Phone className="h-6 w-6 text-gold" />
             <span>
@@ -42,7 +42,7 @@ export function Contact() {
             href={site.whatsapp}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-4 rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
+            className="flex items-center gap-4 rounded-2xl border border-border/80 bg-card/70 backdrop-blur-sm p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
           >
             <MessageCircle className="h-6 w-6 text-gold" />
             <span>
@@ -54,7 +54,7 @@ export function Contact() {
             href={site.instagram}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-4 rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
+            className="flex items-center gap-4 rounded-2xl border border-border/80 bg-card/70 backdrop-blur-sm p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
           >
             <Instagram className="h-6 w-6 text-gold" />
             <span>
@@ -66,7 +66,10 @@ export function Contact() {
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <Reveal>
-            <form onSubmit={submit} className="space-y-4 rounded-2xl border border-border bg-card p-6">
+            <form
+              onSubmit={submit}
+              className="space-y-4 rounded-2xl border border-border/80 bg-card/75 backdrop-blur-sm p-6"
+            >
               <h3 className="text-xl">Enquiry</h3>
               <input
                 required

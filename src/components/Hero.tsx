@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { site } from "@/lib/site";
 import { Aperture } from "./Aperture";
-import { GoldParticles } from "./GoldParticles";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -15,16 +14,14 @@ export function Hero() {
     <section
       ref={ref}
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent"
     >
-      <motion.div className="absolute inset-0" style={{ y }}>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#0D0D0D_0%,#141414_45%,#1A1A1A_100%)]" />
+      <motion.div className="absolute inset-0 pointer-events-none" style={{ y }}>
         {/* faint large gold aperture / light-ring glow behind center */}
         <div className="absolute top-1/2 left-1/2 h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,oklch(0.78_0.13_86/14%)_0%,oklch(0.78_0.13_86/5%)_35%,transparent_68%)] blur-2xl" />
         <div className="absolute top-1/2 left-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/10" />
         <div className="absolute top-1/2 left-1/2 h-[20rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/15" />
-        <GoldParticles />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background/30" />
       </motion.div>
 
       <motion.div

@@ -24,13 +24,22 @@ export function Header() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        solid ? "bg-secondary/95 backdrop-blur border-b border-border py-2" : "bg-transparent py-4"
+        solid
+          ? "bg-secondary/95 backdrop-blur border-b border-border py-2.5"
+          : "bg-transparent py-4"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
-        <a href="#home" aria-label="Esha Photography & Management — home" className="flex items-center">
+      <div className="flex w-full items-center justify-between px-6 lg:px-10">
+        <a
+          href="#home"
+          aria-label="Esha Photography & Management — home"
+          className="flex items-center transition-transform hover:scale-105 active:scale-95"
+        >
           <Aperture
             className={`w-auto transition-all duration-500 ${solid ? "h-9" : "h-11 sm:h-12"}`}
           />
@@ -102,6 +111,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

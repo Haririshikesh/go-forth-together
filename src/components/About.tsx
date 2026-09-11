@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
+import { Award, Camera, Heart } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
 import { aboutImages } from "@/lib/site";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Events Shot" },
-  { value: 5, suffix: "+", label: "Years" },
-  { value: 100, suffix: "%", label: "Love" },
+  { value: 500, suffix: "+", label: "Events Shot", icon: Camera },
+  { value: 5, suffix: "+", label: "Years", icon: Award },
+  { value: 100, suffix: "%", label: "Love", icon: Heart },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -49,12 +50,16 @@ export function About() {
             timeless, elegant frames, and manage every detail so you can simply live the moment.
           </p>
           <div className="mt-10 grid grid-cols-3 gap-4 text-center">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <Counter value={s.value} suffix={s.suffix} />
-                <p className="label-xs mt-2 text-muted-foreground">{s.label}</p>
-              </div>
-            ))}
+            {stats.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div key={s.label} className="flex flex-col items-center">
+                  <Icon className="mb-2.5 h-6 w-6 text-gold" strokeWidth={1.5} />
+                  <Counter value={s.value} suffix={s.suffix} />
+                  <p className="label-xs mt-2 text-muted-foreground">{s.label}</p>
+                </div>
+              );
+            })}
           </div>
         </Reveal>
 
@@ -62,6 +67,7 @@ export function About() {
           {aboutImages.map((g, i) => (
             <div
               key={g.url}
+              data-cursor="view"
               className={`group relative overflow-hidden rounded-2xl border border-border/80 bg-secondary/30 ${
                 i % 2 === 1 ? "mt-4 sm:mt-6" : ""
               }`}
@@ -70,6 +76,7 @@ export function About() {
                 src={g.url}
                 alt={g.caption}
                 loading="lazy"
+                decoding="async"
                 className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
                   i % 2 === 0 ? "h-56 sm:h-64" : "h-48 sm:h-56"
                 }`}

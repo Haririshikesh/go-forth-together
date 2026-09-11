@@ -61,3 +61,17 @@ export function SectionHeading({ label, title }: { label: string; title: ReactNo
     </motion.div>
   );
 }
+
+export function SectionDivider({ className = "" }: { className?: string }) {
+  return (
+    <div className={`mx-auto max-w-6xl px-5 py-2 overflow-hidden ${className}`} aria-hidden="true">
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 0.6 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 1.1, ease }}
+        className="gold-rule origin-center"
+      />
+    </div>
+  );
+}
