@@ -6,7 +6,7 @@ import { aboutImages } from "@/lib/site";
 import { ImageLightbox } from "./ImageLightbox";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Events Shot", icon: Camera },
+  { value: 100, suffix: "+", label: "Events Shot", icon: Camera },
   { value: 5, suffix: "+", label: "Years", icon: Award },
   { value: 100, suffix: "%", label: "Love", icon: Heart },
 ];
@@ -72,18 +72,16 @@ export function About() {
               key={g.url}
               data-cursor="view"
               onClick={() => setLightboxIndex(i)}
-              className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-secondary/30 transition-all duration-300 hover:border-gold/60 hover:shadow-[0_0_20px_oklch(0.78_0.13_86/20%)] ${
-                i % 2 === 1 ? "mt-4 sm:mt-6" : ""
-              }`}
+              className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-secondary/30 transition-all duration-300 hover:border-gold/60 hover:shadow-[0_0_20px_oklch(0.78_0.13_86/20%)] ${i % 2 === 1 ? "mt-4 sm:mt-6" : ""
+                }`}
             >
               <img
                 src={g.url}
                 alt={g.caption}
                 loading="lazy"
                 decoding="async"
-                className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
-                  i % 2 === 0 ? "h-56 sm:h-64" : "h-48 sm:h-56"
-                }`}
+                className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${i % 2 === 0 ? "h-56 sm:h-64" : "h-48 sm:h-56"
+                  }`}
               />
               <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background/90 via-background/20 to-transparent p-3 sm:p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <span className="label-xs w-fit rounded-full border border-gold/40 bg-background/85 px-2 py-0.5 text-[10px] text-gold uppercase tracking-wider">
