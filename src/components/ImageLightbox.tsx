@@ -39,6 +39,7 @@ export function ImageLightbox({
   return (
     <Dialog open={openItem !== null} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
+        hideCloseButton
         className="fixed inset-0 z-[100] flex max-w-none h-screen w-screen translate-x-0 translate-y-0 flex-col items-center justify-center border-none bg-background/95 p-4 backdrop-blur-md"
         onTouchStart={(e) => {
           touchStartX.current = e.touches[0]?.clientX ?? null;
@@ -56,10 +57,10 @@ export function ImageLightbox({
           {openItem ? `${openItem.category} photography preview` : "Full resolution preview"}
         </DialogDescription>
 
-        {/* Close button */}
+        {/* Single elegant close button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-secondary/80 text-gold transition-colors hover:bg-gold/20"
+          className="absolute top-6 right-6 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-gold/40 bg-secondary/80 text-gold transition-colors hover:bg-gold/20"
           aria-label="Close dialog"
         >
           <X className="h-6 w-6" />
