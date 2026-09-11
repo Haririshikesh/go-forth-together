@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { site } from "@/lib/site";
 import { Aperture } from "./Aperture";
+import { GoldParticles } from "./GoldParticles";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
