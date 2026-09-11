@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { site } from "@/lib/site";
+import { Aperture } from "./Aperture";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -29,11 +30,9 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
-        <a href="#home" className="flex items-center gap-3">
-          <img
-            src={site.logo}
-            alt="Esha Photography & Management logo"
-            className="h-10 w-auto rounded-md bg-background/60 p-1 sm:h-12"
+        <a href="#home" aria-label="Esha Photography & Management — home" className="flex items-center">
+          <Aperture
+            className={`w-auto transition-all duration-500 ${solid ? "h-9" : "h-11 sm:h-12"}`}
           />
         </a>
 

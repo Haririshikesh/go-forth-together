@@ -1,12 +1,22 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { site } from "@/lib/site";
 import { Aperture } from "./Aperture";
 
 export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
+  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
+    <section
+      ref={ref}
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+    >
+      <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={site.hero}
           alt="Couple at a South Indian wedding reception photographed by Esha Photography"
@@ -14,13 +24,20 @@ export function Hero() {
           fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/60 to-background" />
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-3xl px-5 pt-24 pb-20 text-center">
+      <motion.div
+        style={{ opacity: fade }}
+        className="relative z-10 mx-auto max-w-3xl px-5 pt-24 pb-20 text-center"
+      >
         <motion.div
-          initial={{ opacity: 0, rotate: -180, scale: 0.7 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1, rotate: 360 }}
+          transition={{
+            opacity: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+            scale: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+            rotate: { duration: 28, repeat: Infinity, ease: "linear" },
+          }}
           className="mx-auto mb-8 h-16 w-16 sm:h-20 sm:w-20"
         >
           <Aperture className="h-full w-full" />
@@ -69,7 +86,7 @@ export function Hero() {
             Contact Us
           </a>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.a
         href="#about"

@@ -40,7 +40,7 @@ export function Portfolio() {
 
       <div className="mt-10 columns-2 gap-4 md:columns-3 [&>*]:mb-4">
         {items.map((g, i) => (
-          <Reveal key={g.url} delay={(i % 3) * 0.08}>
+          <Reveal key={g.url} delay={(i % 3) * 0.1} variant="scale">
             <button
               onClick={() => setIndex(i)}
               className="group relative block w-full overflow-hidden rounded-2xl border border-border"
