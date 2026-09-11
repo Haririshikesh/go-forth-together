@@ -31,9 +31,13 @@ export function Hero() {
         className="relative z-10 mx-auto max-w-3xl px-5 pt-24 pb-20 text-center"
       >
         <motion.div
-          initial={{ opacity: 0, rotate: -180, scale: 0.7 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1, rotate: 360 }}
+          transition={{
+            opacity: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+            scale: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+            rotate: { duration: 28, repeat: Infinity, ease: "linear" },
+          }}
           className="mx-auto mb-8 h-16 w-16 sm:h-20 sm:w-20"
         >
           <Aperture className="h-full w-full" />
@@ -82,7 +86,7 @@ export function Hero() {
             Contact Us
           </a>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.a
         href="#about"
