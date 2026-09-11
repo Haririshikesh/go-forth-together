@@ -3,6 +3,7 @@ import { useInView } from "motion/react";
 import { Award, Camera, Heart } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
 import { aboutImages } from "@/lib/site";
+import { ImageLightbox } from "./ImageLightbox";
 
 const stats = [
   { value: 500, suffix: "+", label: "Events Shot", icon: Camera },
@@ -38,6 +39,8 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function About() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   return (
     <section id="about" className="mx-auto max-w-6xl px-5 py-24 sm:py-32">
       <SectionHeading label="About the studio" title="Frames that feel like memories" />
@@ -68,7 +71,8 @@ export function About() {
             <div
               key={g.url}
               data-cursor="view"
-              className={`group relative overflow-hidden rounded-2xl border border-border/80 bg-secondary/30 ${
+              onClick={() => setLightboxIndex(i)}
+              className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-secondary/30 transition-all duration-300 hover:border-gold/60 hover:shadow-[0_0_20px_oklch(0.78_0.13_86/20%)] ${
                 i % 2 === 1 ? "mt-4 sm:mt-6" : ""
               }`}
             >
@@ -82,7 +86,7 @@ export function About() {
                 }`}
               />
               <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background/90 via-background/20 to-transparent p-3 sm:p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="label-xs w-fit rounded-full border border-gold/40 bg-background/85 px-2 py-0.5 text-[10px] text-gold uppercase tracking-wider backdrop-blur">
+                <span className="label-xs w-fit rounded-full border border-gold/40 bg-background/85 px-2 py-0.5 text-[10px] text-gold uppercase tracking-wider">
                   {g.category}
                 </span>
                 <p className="mt-1 line-clamp-1 text-xs font-medium text-foreground sm:text-sm">
@@ -93,6 +97,13 @@ export function About() {
           ))}
         </Reveal>
       </div>
+
+      <ImageLightbox
+        items={aboutImages}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onIndexChange={setLightboxIndex}
+      />
     </section>
   );
 }

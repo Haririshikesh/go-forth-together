@@ -48,7 +48,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35 + i * 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            {i === 0 && <p className="label-xs text-gold">Chennai · West Tambaram</p>}
+            {i === 0 && <p className="label-xs text-gold">Chennai · Tambaram</p>}
             {i === 1 && (
               <h1 className="mt-4 text-4xl leading-tight font-semibold sm:text-6xl md:text-7xl">
                 Esha <span className="gold-text">Photography</span>
