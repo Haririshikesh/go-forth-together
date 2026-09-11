@@ -24,9 +24,12 @@ export function Hero() {
           fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/60 to-background" />
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-3xl px-5 pt-24 pb-20 text-center">
+      <motion.div
+        style={{ opacity: fade }}
+        className="relative z-10 mx-auto max-w-3xl px-5 pt-24 pb-20 text-center"
+      >
         <motion.div
           initial={{ opacity: 0, rotate: -180, scale: 0.7 }}
           animate={{ opacity: 1, rotate: 0, scale: 1 }}
