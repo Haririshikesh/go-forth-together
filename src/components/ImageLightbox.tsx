@@ -39,7 +39,7 @@ export function ImageLightbox({
   return (
     <Dialog open={openItem !== null} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
-        hideCloseButton
+        hideClose
         className="fixed inset-0 z-[100] flex max-w-none h-screen w-screen translate-x-0 translate-y-0 flex-col items-center justify-center border-none bg-background/95 p-4 backdrop-blur-md"
         onTouchStart={(e) => {
           touchStartX.current = e.touches[0]?.clientX ?? null;
@@ -57,10 +57,11 @@ export function ImageLightbox({
           {openItem ? `${openItem.category} photography preview` : "Full resolution preview"}
         </DialogDescription>
 
-        {/* Single elegant close button */}
+        {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-gold/40 bg-secondary/80 text-gold transition-colors hover:bg-gold/20"
+          data-cursor="pointer"
+          className="absolute top-6 right-6 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-gold/40 bg-secondary/80 text-gold transition-all hover:scale-105 hover:bg-gold/20 active:scale-95"
           aria-label="Close dialog"
         >
           <X className="h-6 w-6" />
@@ -69,8 +70,9 @@ export function ImageLightbox({
         {/* Previous button */}
         <button
           onClick={() => step(-1)}
+          data-cursor="pointer"
           aria-label="Previous image"
-          className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-gold/30 bg-secondary/70 text-gold transition-transform hover:scale-110 hover:border-gold active:scale-95 sm:left-8"
+          className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-gold/30 bg-secondary/70 text-gold transition-transform hover:scale-110 hover:border-gold active:scale-95 sm:left-8"
         >
           <ChevronLeft className="h-8 w-8" />
         </button>
@@ -109,8 +111,9 @@ export function ImageLightbox({
         {/* Next button */}
         <button
           onClick={() => step(1)}
+          data-cursor="pointer"
           aria-label="Next image"
-          className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-gold/30 bg-secondary/70 text-gold transition-transform hover:scale-110 hover:border-gold active:scale-95 sm:right-8"
+          className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-gold/30 bg-secondary/70 text-gold transition-transform hover:scale-110 hover:border-gold active:scale-95 sm:right-8"
         >
           <ChevronRight className="h-8 w-8" />
         </button>
