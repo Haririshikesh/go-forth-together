@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
 import { Reveal, SectionHeading } from "./Reveal";
-import { gallery } from "@/lib/site";
+import { aboutImages } from "@/lib/site";
 
 const stats = [
   { value: 500, suffix: "+", label: "Events Shot" },
@@ -58,17 +58,31 @@ export function About() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.15} className="grid grid-cols-2 gap-4">
-          {gallery.slice(3, 7).map((g, i) => (
-            <img
+        <Reveal delay={0.15} className="grid grid-cols-2 gap-4 sm:gap-6">
+          {aboutImages.map((g, i) => (
+            <div
               key={g.url}
-              src={g.url}
-              alt={g.caption}
-              loading="lazy"
-              className={`w-full rounded-2xl border border-border object-cover ${
-                i % 3 === 0 ? "h-56 sm:h-64" : "h-44 sm:h-52"
+              className={`group relative overflow-hidden rounded-2xl border border-border/80 bg-secondary/30 ${
+                i % 2 === 1 ? "mt-4 sm:mt-6" : ""
               }`}
-            />
+            >
+              <img
+                src={g.url}
+                alt={g.caption}
+                loading="lazy"
+                className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+                  i % 2 === 0 ? "h-56 sm:h-64" : "h-48 sm:h-56"
+                }`}
+              />
+              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background/90 via-background/20 to-transparent p-3 sm:p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="label-xs w-fit rounded-full border border-gold/40 bg-background/85 px-2 py-0.5 text-[10px] text-gold uppercase tracking-wider backdrop-blur">
+                  {g.category}
+                </span>
+                <p className="mt-1 line-clamp-1 text-xs font-medium text-foreground sm:text-sm">
+                  {g.caption}
+                </p>
+              </div>
+            </div>
           ))}
         </Reveal>
       </div>
